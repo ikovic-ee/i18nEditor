@@ -10,7 +10,7 @@ var paths = {
   CSS_MAIN: './src/main.scss',
   CSS_BUILD: './static/css/',
   JS_MAIN: './src/app.js',
-  JS_SRC: './src/**/*.js',
+  JS_SRC: './src/components/**/*.js',
   JS_BUILD: './static/js'
 };
 
