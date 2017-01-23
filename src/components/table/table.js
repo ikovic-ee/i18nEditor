@@ -9,7 +9,7 @@ const Table = ({children, rows, language}) => {
   const preparedRows = [];
   let treeLevel = 0;
 
-  function prepareRows(rows) {
+  function prepareRows(rows, parent = null) {
     rows.forEach(row => {
       if (row.type === constants.MODULE_TYPE) {
         let newRow = (
@@ -17,6 +17,7 @@ const Table = ({children, rows, language}) => {
             key={`module_${getUid()}_${row.name}`}
             module={row}
             level={treeLevel}
+            parent={parent}
           />
         );
         preparedRows.push(newRow);
@@ -28,6 +29,7 @@ const Table = ({children, rows, language}) => {
             key={`key_${getUid()}_${row.name}`}
             keyData={row}
             level={treeLevel}
+            parent={parent}
           />
         );
         preparedRows.push(newRow);

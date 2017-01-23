@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 
-const KeyRow = ({keyData, level}) => {
+const KeyRow = ({keyData, level, parent}) => {
+
+  let leftPadding = 10 * level;
+
   return (
     <tr>
-      <td>
-        {keyData.name} {level}
+      <td style={{paddingLeft: leftPadding}}>
+        {keyData.name}
       </td>
     </tr>
   )
