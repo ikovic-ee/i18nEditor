@@ -9,6 +9,10 @@ const Table = ({title, rows, language}) => {
   const preparedRows = [];
   let treeLevel = 0;
 
+  function saveSkeleton(val) {
+    console.log("blur", val);
+  }
+
   function prepareRows(rows, parent = null) {
     rows.forEach(row => {
       if (row.type === constants.MODULE_TYPE) {
@@ -18,6 +22,7 @@ const Table = ({title, rows, language}) => {
             module={row}
             level={treeLevel}
             parent={parent}
+            saveChange={saveSkeleton}
           />
         );
         preparedRows.push(newRow);
@@ -30,6 +35,7 @@ const Table = ({title, rows, language}) => {
             keyData={row}
             level={treeLevel}
             parent={parent}
+            saveChange={saveSkeleton}
           />
         );
         preparedRows.push(newRow);

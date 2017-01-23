@@ -1,16 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
+import HigherOrderRow from './higherOrderRow';
+import TextInput from './input/textInput';
 
-const ModuleRow = ({module, level, parent}) => {
-
-  let leftPadding = 10 * level;
-
+const ModuleRow = ({module, level, parent, saveChange}) => {
   return (
-    <tr>
-      <td style={{paddingLeft: leftPadding}}>
-        {module.name}
-      </td>
-    </tr>
+    <TextInput value={module.name}
+               saveChange={saveChange}
+    />
   )
 };
 
-export default ModuleRow;
+export default HigherOrderRow(ModuleRow);

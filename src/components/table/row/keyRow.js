@@ -1,16 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
+import HigherOrderRow from './higherOrderRow';
+import TextInput from './input/textInput';
 
-const KeyRow = ({keyData, level, parent}) => {
-
-  let leftPadding = 10 * level;
-
+const KeyRow = ({keyData, level, parent, saveChange}) => {
   return (
-    <tr>
-      <td style={{paddingLeft: leftPadding}}>
-        {keyData.name}
-      </td>
-    </tr>
+    <TextInput value={keyData.name}
+               saveChange={saveChange}
+    />
   )
 };
 
-export default KeyRow;
+export default HigherOrderRow(KeyRow);
