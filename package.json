@@ -4,7 +4,8 @@
   "description": "A text editor for quick generation of translation files for i18n",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/electron app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ikovic-ee/i18nEditor/issues"
   },
-  "homepage": "https://github.com/ikovic-ee/i18nEditor#readme"
+  "homepage": "https://github.com/ikovic-ee/i18nEditor#readme",
+  "devDependencies": {
+    "electron": "^1.4.15"
+  }
 }
