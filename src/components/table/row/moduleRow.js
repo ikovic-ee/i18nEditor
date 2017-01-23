@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-const ModuleRow = ({data}) => {
+const ModuleRow = ({module, level}) => {
   return (
     <tr>
       <td>
-        {JSON.stringify(data)}
+        {module.name} {level}
       </td>
     </tr>
   )

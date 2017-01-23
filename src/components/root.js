@@ -7,8 +7,54 @@ export default class Root extends Component {
 
     this.state = {
       rows: [
-        {test: 'test'},
-        {ppp: 'ppp'}
+        {
+          type: 'MODULE_TYPE',
+          name: 'LOGIN',
+          keys: [
+            {
+              type: 'KEY_TYPE',
+              name: 'OK'
+            },
+            {
+              type: 'KEY_TYPE',
+              name: 'CANCEL'
+            },
+            {
+              type: 'MODULE_TYPE',
+              name: 'ALERT',
+              keys: [
+                {
+                  type: 'KEY_TYPE',
+                  name: 'ERROR'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          type: 'MODULE_TYPE',
+          name: 'LOGIN',
+          keys: [
+            {
+              type: 'KEY_TYPE',
+              name: 'OK'
+            },
+            {
+              type: 'KEY_TYPE',
+              name: 'CANCEL'
+            },
+            {
+              type: 'MODULE_TYPE',
+              name: 'ALERT',
+              keys: [
+                {
+                  type: 'KEY_TYPE',
+                  name: 'ERROR'
+                }
+              ]
+            }
+          ]
+        }
       ]
     };
   }
