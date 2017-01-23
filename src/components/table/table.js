@@ -4,7 +4,7 @@ import ModuleRow from './row/moduleRow';
 import KeyRow from './row/keyRow';
 import constants from '../../constants/constants';
 
-const Table = ({children, rows, language}) => {
+const Table = ({title, rows, language}) => {
 
   const preparedRows = [];
   let treeLevel = 0;
@@ -40,8 +40,14 @@ const Table = ({children, rows, language}) => {
   }
 
   return (
-    <table>
-      {children}
+    <table className="translation-table">
+      <thead>
+      <tr>
+        <th>
+          {title}
+        </th>
+      </tr>
+      </thead>
       <tbody>
       {prepareRows(rows)}
       </tbody>

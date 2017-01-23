@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Table from './table/table';
+import getUid from 'get-uid';
 
 export default class Root extends Component {
   constructor() {
     super();
 
     this.state = {
+      languages: ['en', 'zh'],
       rows: [
         {
           type: 'MODULE_TYPE',
@@ -59,16 +61,22 @@ export default class Root extends Component {
     };
   }
 
+  createTranslationTables() {
+    return this.state.languages.map(language => {
+      return (
+        <Table key={getUid()} title={language} rows={[]}/>
+      );
+    }, this);
+  }
+
   render() {
     return (
       <div>
-        <Table rows={this.state.rows}>
-          <thead>
-            <tr>
-              <td>Modules & Keys</td>
-            </tr>
-          </thead>
-        </Table>
+        <Table
+          rows={this.state.rows}
+          title="Modules & Keys"
+        />
+        {this.createTranslationTables()}
       </div>
     );
   }
