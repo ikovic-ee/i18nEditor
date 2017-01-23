@@ -6,15 +6,17 @@ export default class Root extends Component {
     super();
 
     this.state = {
-      stuff: 'stuff'
+      rows: [
+        {test: 'test'},
+        {ppp: 'ppp'}
+      ]
     };
   }
 
   render() {
     return (
       <div>
-        {this.state.stuff}
-        <Table>
+        <Table rows={this.state.rows}>
           <thead>
             <tr>
               <td>Modules & Keys</td>
