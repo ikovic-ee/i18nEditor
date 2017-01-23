@@ -38,3 +38,7 @@ jspm_packages
 
 # JetBrains
 .idea
+
+# build
+static/js/*
+static/css/*
