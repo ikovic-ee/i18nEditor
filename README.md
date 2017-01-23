@@ -12,6 +12,7 @@ $ npm install
 * run Gulp in a separate terminal to compile front end assets
 ```sh
 $ gulp
+```
 
 * run the app via npm
 ```sh
