@@ -1,9 +1,10 @@
 import actionTypes from './actionTypes';
 
-function addNamespace(namespace) {
+function addNamespace(namespace, index) {
   return {
     type: actionTypes.ADD_NAMESPACE,
-    namespace
+    namespace,
+    index
   }
 }
 
