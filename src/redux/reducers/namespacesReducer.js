@@ -21,3 +21,5 @@ function addNamespace(namespaces, addAction) {
     return [...parentArray, namespace];
   }
 }
+
+export default namespacesReducer;

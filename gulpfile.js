@@ -35,6 +35,7 @@ gulp.task('watch', function () {
   gulp.watch(paths.CSS_MAIN, ['styles']);
   gulp.watch(paths.CSS_SRC, ['styles']);
   gulp.watch(paths.JS_SRC, ['js']);
+  gulp.watch(paths.JS_MAIN, ['js']);
 });
 
 // The default task (called when you run `gulp` from cli)
