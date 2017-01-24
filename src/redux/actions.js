@@ -15,10 +15,12 @@ function removeNamespace(namespace) {
   }
 }
 
-function updateNamespace(namespace) {
+function updateNamespace(namespace, parent, index) {
   return {
     type: actionTypes.UPDATE_NAMESPACE,
-    namespace
+    namespace,
+    parent,
+    index
   }
 }
 

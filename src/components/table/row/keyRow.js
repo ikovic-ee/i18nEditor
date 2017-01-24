@@ -4,9 +4,7 @@ import TextInput from './input/textInput';
 
 const KeyRow = ({keyData, level, parent, saveChange}) => {
   return (
-    <TextInput value={keyData.name}
-               saveChange={saveChange}
-    />
+    <TextInput data={{item: keyData, parent}}/>
   )
 };
 

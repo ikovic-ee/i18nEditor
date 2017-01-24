@@ -4,9 +4,7 @@ import TextInput from './input/textInput';
 
 const ModuleRow = ({module, level, parent, saveChange}) => {
   return (
-    <TextInput value={module.name}
-               saveChange={saveChange}
-    />
+    <TextInput data={{item: module, parent}}/>
   )
 };
 
