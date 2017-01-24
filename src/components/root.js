@@ -1,64 +1,15 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Table from './table/table';
 import getUid from 'get-uid';
 
-export default class Root extends Component {
+class Root extends Component {
   constructor() {
     super();
 
-    this.state = {
-      languages: ['en', 'zh'],
-      rows: [
-        {
-          type: 'MODULE_TYPE',
-          name: 'LOGIN',
-          keys: [
-            {
-              type: 'KEY_TYPE',
-              name: 'OK'
-            },
-            {
-              type: 'KEY_TYPE',
-              name: 'CANCEL'
-            },
-            {
-              type: 'MODULE_TYPE',
-              name: 'ALERT',
-              keys: [
-                {
-                  type: 'KEY_TYPE',
-                  name: 'ERROR'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          type: 'MODULE_TYPE',
-          name: 'LOGIN',
-          keys: [
-            {
-              type: 'KEY_TYPE',
-              name: 'OK'
-            },
-            {
-              type: 'KEY_TYPE',
-              name: 'CANCEL'
-            },
-            {
-              type: 'MODULE_TYPE',
-              name: 'ALERT',
-              keys: [
-                {
-                  type: 'KEY_TYPE',
-                  name: 'ERROR'
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    };
+    /*this.state = {
+      languages: ['en', 'zh']
+    };*/
   }
 
   createTranslationTables() {
@@ -70,14 +21,22 @@ export default class Root extends Component {
   }
 
   render() {
+    //{this.createTranslationTables()}
     return (
       <div>
         <Table
-          rows={this.state.rows}
+          rows={this.props.namespaces}
           title="Modules & Keys"
         />
-        {this.createTranslationTables()}
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    namespaces: state.namespaces
+  }
+};
+
+export default connect(mapStateToProps)(Root);
