@@ -12,7 +12,17 @@ const initialState = {
       type: 'KEY_TYPE',
       value: 'LOGIN_CANCEL_BTN'
     }
-  ]
+  ],
+  languages: {
+    en: {
+      'LOGIN_OK_BTN': 'ok',
+      'LOGIN_CANCEL_BTN': 'cancel'
+    },
+    zh: {
+      'LOGIN_OK_BTN': 'chang',
+      'LOGIN_CANCEL_BTN': 'shlang'
+    }
+  }
 };
 
 const reducers = {
