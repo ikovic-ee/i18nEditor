@@ -8,6 +8,22 @@ function updateKey(oldKey, newKey) {
   }
 }
 
+function addKey(key, index) {
+  return {
+    type: actionTypes.ADD_KEY,
+    key
+  }
+}
+
+function removeKey(key) {
+  return {
+    type: actionTypes.REMOVE_KEY,
+    key
+  }
+}
+
 export {
-  updateKey
+  updateKey,
+  addKey,
+  removeKey
 };
