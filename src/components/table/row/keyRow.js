@@ -1,21 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {removeKey} from '../../../redux/actions';
+import {addKey, removeKey} from '../../../redux/actions';
 import HigherOrderRow from './higherOrderRow';
 import TextInput from './input/textInput';
 
-const KeyRow = ({keyData, removeItem}) => {
+const KeyRow = ({keyData, addItem, removeItem}) => {
   return (
     <span>
       <TextInput data={{item: keyData}}/>
-      <span onClick={() => removeItem(keyData)}>X</span>
+      <span onClick={() => addItem(keyData)}> + </span>
+      <span onClick={() => removeItem(keyData)}> - </span>
     </span>
   )
 };
 
 function mapDispatchToProps(dispatch) {
   return {
-    removeItem: (item) => dispatch(removeKey(item))
+    addItem: (previousItem) => dispatch(addKey(previousItem)),
+    removeItem: item => dispatch(removeKey(item))
   }
 }
 

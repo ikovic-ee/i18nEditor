@@ -8,10 +8,10 @@ function updateKey(oldKey, newKey) {
   }
 }
 
-function addKey(key, index) {
+function addKey(previousKey = null) {
   return {
     type: actionTypes.ADD_KEY,
-    key
+    previousKey
   }
 }
 
