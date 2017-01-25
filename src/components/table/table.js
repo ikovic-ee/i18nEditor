@@ -1,47 +1,25 @@
 import React, {Component} from 'react';
-import ModuleRow from './row/moduleRow';
 import KeyRow from './row/keyRow';
+import getUid from 'get-uid';
 import constants from '../../constants/constants';
 
-const Table = ({title, namespaces, keys, language}) => {
+const Table = ({title, keys, language}) => {
 
-  const preparedRows = [];
-  let treeLevel = 0;
-
-  function getChildren(ids) {
-    let allItems = [...keys, ...namespaces];
-    return allItems.filter(row => ids.find(id => id === row.id));
-  }
-
-  function prepareRows(rows, parent = null) {
+  function prepareRows(rows) {
+    let preparedRows = [];
     rows.forEach(row => {
-      if (row.type === constants.MODULE_TYPE && (!parent && !row.parent || (parent && row.parent))) {
-        let newRow = (
-          <ModuleRow
-            key={`module_${row.id}_${row.name}`}
-            module={row}
-            level={treeLevel}
-            parent={parent}
-          />
-        );
-        preparedRows.push(newRow);
-        parent = row;
-        treeLevel++;
-        let children = getChildren(row.children);
-        prepareRows(children, parent);
-      } else {
+      if (row.type === constants.KEY_TYPE) {
         let newRow = (
           <KeyRow
-            key={`key_${row.id}_${row.name}`}
+            key={`key_${getUid()}`}
             keyData={row}
-            level={treeLevel}
-            parent={parent}
           />
         );
         preparedRows.push(newRow);
+      } else {
+        // TODO language thingy
       }
     });
-    treeLevel--;
     return preparedRows;
   }
 
@@ -55,7 +33,7 @@ const Table = ({title, namespaces, keys, language}) => {
       </tr>
       </thead>
       <tbody>
-      {prepareRows(namespaces)}
+      {prepareRows(keys)}
       </tbody>
     </table>
   );

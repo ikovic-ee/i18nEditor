@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {updateNamespace} from '../../../../redux/actions';
+import {updateKey} from '../../../../redux/actions';
 
 class TextInput extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class TextInput extends Component {
     this.onBlur = this.onBlur.bind(this);
 
     this.state = {
-      value: props.data.item.name || ""
+      value: props.data.item.value || ""
     }
   }
 
@@ -19,9 +19,9 @@ class TextInput extends Component {
   }
 
   onBlur() {
-    let index = this.props.data.parent.keys.indexOf(this.props.data.item);
-    let updatedValue = Object.assign({}, this.props.data.item, {name: this.state.value});
-    this.props.saveItem(updatedValue, this.props.data.parent, index);
+    let item = this.props.data.item;
+    let updatedValue = Object.assign({}, item, {value: this.state.value});
+    this.props.saveItem(item, updatedValue);
   }
 
   render() {
@@ -37,10 +37,8 @@ class TextInput extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveItem: (item, parent, index) => {
-      dispatch(updateNamespace(item, parent, index));
-    }
-  };
+    saveItem: (oldItem, newItem) => dispatch(updateKey(oldItem, newItem))
+  }
 };
 
 export default connect(null, mapDispatchToProps)(TextInput);

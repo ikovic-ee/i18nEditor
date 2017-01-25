@@ -1,31 +1,13 @@
 import actionTypes from './actionTypes';
 
-function addNamespace(namespace, index) {
+function updateKey(oldKey, newKey) {
   return {
-    type: actionTypes.ADD_NAMESPACE,
-    namespace,
-    index
-  }
-}
-
-function removeNamespace(namespace) {
-  return {
-    type: actionTypes.REMOVE_NAMESPACE,
-    namespace
-  }
-}
-
-function updateNamespace(namespace, parent, index) {
-  return {
-    type: actionTypes.UPDATE_NAMESPACE,
-    namespace,
-    parent,
-    index
+    type: actionTypes.UPDATE_KEY,
+    oldKey,
+    newKey
   }
 }
 
 export {
-  addNamespace,
-  removeNamespace,
-  updateNamespace
+  updateKey
 };

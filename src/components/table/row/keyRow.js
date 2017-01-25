@@ -2,9 +2,9 @@ import React from 'react';
 import HigherOrderRow from './higherOrderRow';
 import TextInput from './input/textInput';
 
-const KeyRow = ({keyData, level, parent, saveChange}) => {
+const KeyRow = ({keyData}) => {
   return (
-    <TextInput data={{item: keyData, parent}}/>
+    <TextInput data={{item: keyData}}/>
   )
 };
 

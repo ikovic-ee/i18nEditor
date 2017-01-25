@@ -25,7 +25,6 @@ class Root extends Component {
     return (
       <div>
         <Table
-          namespaces={this.props.namespaces}
           keys={this.props.keys}
           title="Modules & Keys"
         />
@@ -36,7 +35,6 @@ class Root extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    namespaces: state.namespaces,
     keys: state.keys
   }
 };
